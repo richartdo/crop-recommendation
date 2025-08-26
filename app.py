@@ -1,18 +1,14 @@
-import pickle
 from flask import Flask, request, jsonify
+import joblib
+import numpy as np
 
 # Initialize Flask app
 app = Flask(__name__)
 
-# Load trained objects
-with open("models/best_model_xgboost.pkl", "rb") as f:
-    model = pickle.load(f)
-
-with open("models/scaler.pkl", "rb") as f:
-    scaler = pickle.load(f)
-
-with open("models/label_encoder.pkl", "rb") as f:
-    label_encoder = pickle.load(f)
+# ✅ Load trained objects using joblib (not pickle)
+model = joblib.load("models/best_model_xgboost.pkl")
+scaler = joblib.load("models/scaler.pkl")
+label_encoder = joblib.load("models/label_encoder.pkl")
 
 @app.route("/")
 def home():
@@ -49,3 +45,5 @@ def predict():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
+
