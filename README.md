@@ -20,7 +20,17 @@ The model was trained and evaluated on the **[Crop Recommendation Dataset](https
 ---
 
 ## 📂 Project Structure  
-
+'''
+├── notebooks/
+│ └── crop_recommendation.ipynb # Training notebook
+├── models/
+│ ├── best_model_xgboost.pkl # Saved trained model (XGBoost)
+│ ├── scaler.pkl # StandardScaler object
+│ └── label_encoder.pkl # LabelEncoder object
+├── app.py # Flask API for deployment
+├── requirements.txt # Dependencies
+├── README.md # Project documentation
+'''
 
 
 ---
