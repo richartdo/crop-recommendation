@@ -1,24 +1,51 @@
-# 🌱 Crop Recommendation System
+# 🌱 Crop Recommendation System  
 
 ## 📌 Overview  
-This project uses **Machine Learning** to recommend the most suitable crop to grow based on **soil nutrients (N, P, K), pH, rainfall, temperature, and humidity**.  
-The model was trained and evaluated on the **[Crop Recommendation Dataset](https://www.kaggle.com/datasets/atharvaingle/crop-recommendation-dataset)**.  
+This project leverages **Machine Learning** to recommend the most suitable crop to grow based on key agricultural factors:  
+- **Soil nutrients:** Nitrogen (N), Phosphorus (P), Potassium (K)  
+- **Environmental conditions:** pH, Rainfall, Temperature, Humidity  
+
+The model was trained and evaluated on the **[Crop Recommendation Dataset](https://www.kaggle.com/datasets/atharvaingle/crop-recommendation-dataset)** and deployed as an API using **Flask** on **Render**.  
+
+---
 
 ## ✨ Features  
-- Preprocessing with **Label Encoding** and **StandardScaler**  
-- Multiple ML models tested (Decision Tree, Random Forest, Logistic Regression, etc.)  
-- Best-performing model saved for deployment  
-- Ready for deployment with **Flask / FastAPI** + **Render**  
-- Jupyter Notebook included for reproducibility  
+- ✅ Data preprocessing with **Label Encoding** and **StandardScaler**  
+- ✅ Multiple ML models tested (Decision Tree, Random Forest, Logistic Regression, etc.)  
+- ✅ **XGBoost** chosen as the best-performing model  
+- ✅ Saved trained model + scaler + label encoder for reproducibility  
+- ✅ REST API built with **Flask** for deployment  
+- ✅ Hosted live on **Render**  
+
+---
 
 ## 📂 Project Structure  
-├── notebooks/
-│   └── crop_recommendation.ipynb   # Training notebook
-├── models/
-│   ├── best_model.pkl              # Saved trained model
-│   ├── scaler.pkl                  # StandardScaler object
-│   └── label_encoder.pkl           # LabelEncoder object
-├── app.py                          # API for deployment (to be added)
-├── requirements.txt                # Python dependencies
-├── README.md                       # Project documentation
+
+
+
+---
+
+## 🚀 Live API  
+- **Base URL:** [https://crop-recommendation-2-u8wx.onrender.com](https://crop-recommendation-2-u8wx.onrender.com)  
+- **Health Check:** `/` → Returns a JSON welcome message  
+- **Prediction Endpoint:** `/predict`  
+
+### 🔧 Usage  
+
+#### Endpoint: `/predict`  
+- **Method:** `POST`  
+- **Headers:**  
+  `Content-Type: application/json`  
+
+#### Example Request  
+```json
+{
+  "N": 90,
+  "P": 42,
+  "K": 43,
+  "temperature": 20.5,
+  "humidity": 80,
+  "ph": 6.5,
+  "rainfall": 200
+}
 
